@@ -17,8 +17,10 @@
 		for ($i=0; $i < $col ; $i++) { 
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
-				echo "$cont";
-				echo ("<td><img src=\"imagenes/$numeros[$cont].jpeg\" style=\"width:120px;height:180px;\" name=\"cara\"></td>");
+				echo ("	<td><div class=\"container\">
+							<img src=\"imagenes/$numeros[$cont].jpeg\" style=\"width:120px;height:180px;\" class=\"back\">
+							<img src=\"imagenes/dorso.jpeg\" style=\"width:120px;height:180px;\" class=\"front\">
+						</div></td>");
 				$cont++;
 			}
 			echo ("</tr>");
@@ -26,38 +28,6 @@
 	}
 	echo ("</table>");
 ?>
-
-
-
-<br><br><br><br><br><br><br><br>
-				<div id="flip-container">
-					<div id="card1" class="card">
-					<div class="front">
-						<img src="imagenes/dorso.jpeg" style="width:120px;height:180px;" name="dorso">
-					</div>
-						<div class="back">
-							<img src="imagenes/1.jpeg" style="width:120px;height:180px;" name="cara">
-						</div>
-					</div>
-				</div>
-				<div id="flip-container">
-					<div id="card1" class="card">
-					<div class="front">
-						<img src="imagenes/dorso.jpeg" style="width:120px;height:180px;" name="dorso">
-					</div>
-						<div class="back">
-							<img src="imagenes/2.jpeg" style="width:120px;height:180px;" name="cara">
-						</div>
-					</div>
-				</div>	
-
-
-<!-- 		<img src="imagenes/dorso.jpeg" style="width:120px;height:180px;" name="dorso">
-		<img src="imagenes/1.jpeg" style="width:120px;height:180px;" name="cara">
-	
-		<img src="imagenes/dorso.jpeg" style="width:120px;height:180px;" name="dorso">
-		<img sr c="imagenes/dorso.jpeg" style="width:120px;height:180px;" name="dorso"> -->
-
 
 
 <button id="start" onclick="inicio()">
