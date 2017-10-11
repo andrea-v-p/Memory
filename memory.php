@@ -12,18 +12,19 @@
 	$cont =0;
 	// cartas4X4 array temporal falta añadir el resto de imagenes
 		// 16 CARTAS -- 8 PAREJAS
-	$cartas4X4 = array( 1, 2, 1, 2);
-	shuffle($numeros);
+	$cartas4X4 = array( 1, 1, 2, 2);
+	shuffle($cartas4X4);
 	echo ("<table>");
 
 		for ($i=0; $i < $col ; $i++) { 
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
-				echo ("	<td><div class=\"container\">
-							<img src=\"imagenes/$cartas4X4[$cont].jpeg\" style=\"width:120px;height:180px;\" class=\"back\">
-							<img src=\"imagenes/dorso.jpeg\" style=\"width:120px;height:180px;\" class=\"front\">
-						</div></td>");
+				echo ('	<td><div class="container" onclick=" flip('.$cont.')">
+							<img src="imagenes/'.$cartas4X4[$cont].'.jpeg" style="width:120px;height:180px;" class="back" id="'.$cont.'f">
+							<img src="imagenes/dorso.jpeg" style="width:120px;height:180px;" class="front" id="'.$cont.'b ">
+						</div></td>');
 				$cont++;
+
 			}
 			echo ("</tr>");
 		
@@ -31,9 +32,9 @@
 	echo ("</table>");
 ?>
 
-	<a href="inicio.html"><button id="restart" >
+	<!-- <a href="inicio.html"> --><button id="restart" >
  		¡Reiniciar!
-	</button></a>
+	</button><!-- </a> -->
 
 </body>
 </html>
