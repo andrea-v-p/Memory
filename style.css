@@ -1,3 +1,4 @@
+//FLIP DE LAS CARTAS
 .front, .back, .container {
   width: 140px;
   height: 200px;
@@ -32,3 +33,4 @@
 .container:hover .back {
   transform: rotateY(360deg);
 }
+//FIN DE FLIP DE LAS CARTAS
