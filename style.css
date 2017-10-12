@@ -3,7 +3,7 @@
   width: 140px;
   height: 200px;
 }
-/*
+
 .front, .back {
   backface-visibility: hidden;
   position: absolute;
@@ -11,58 +11,42 @@
   left: 0;
 }
 
-.front {
-  z-index: 2;
-  transform: rotateY(0deg);
-  transition: all 0.3s linear;
-}
-
-.back {
-  transition: all 0.3s linear;
-  transform: rotateY(180deg);
-}*/
-
 .container {
   position: relative;
 }
 
+.container > .front{position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
+  transform: perspective(600px) rotateY(0deg);
+  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: webkit-transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+}
+.container > .back{position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
+  transform: perspective(600px) rotateY(180deg);
+  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: webkit-transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+}
+.container > .frontFlip{
+  position: absolute; -webkit-transform: perspective(600px) rotateY(-180deg);
+  transform: perspective(600px) rotateY(-180deg);
+  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: webkit-transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+}
+.container > .backFlip{
+  position: absolute; -webkit-transform: perspective(600px) rotateY(-180deg);
+  transform: perspective(600px) rotateY(0deg);
+  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: webkit-transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+}
 /*FIN DE FLIP DE LAS CARTAS*/
-
-    .container > .front{position: absolute; -webkit-transform: perspective(600px) rotateY(0deg);
-      transform: perspective(600px) rotateY(0deg);
-      background #fCO; width: 200px;height: 200px; border-radius: 7px;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition: webkit-transform .5s linear 0s;
-      transition: transform .5s linear 0s;
-      background-color: yellow;
-    }
-    .container > .back{position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
-      transform: perspective(600px) rotateY(180deg);
-      background #fCO; width: 200px;height: 200px; border-radius: 7px;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition: webkit-transform .5s linear 0s;
-      transition: transform .5s linear 0s;
-      background-color: blue;
-    }
-    .container > .frontFlip{
-      position: absolute; -webkit-transform: perspective(600px) rotateY(-180deg);
-      transform: perspective(600px) rotateY(-180deg);
-      background #fCO; width: 200px;height: 200px; border-radius: 7px;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition: webkit-transform .5s linear 0s;
-      transition: transform .5s linear 0s;
-      background-color: yellow;
-    }
-    .container > .backFlip{
-      position: absolute; -webkit-transform: perspective(600px) rotateY(0deg);
-      transform: perspective(600px) rotateY(0deg);
-      background #fCO; width: 200px;height: 200px; border-radius: 7px;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition: webkit-transform .5s linear 0s;
-      transition: transform .5s linear 0s;
-      background-color: blue;
-    }
