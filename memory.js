@@ -1,5 +1,10 @@
 function flip($identificador){
+	var x = document.getElementById($identificador+"b");
 
-	document.getElementById($identificador+"f").className = "backFlip";
-	document.getElementById($identificador+"b").className = "frontFlip";
-	}
+	if (x.className=="backFlip"){
+		document.getElementById($identificador+"b").className = "back";
+		document.getElementById($identificador+"f").className = "front";
+	}else if(x.className=="back"){
+		document.getElementById($identificador+"b").className = "backFlip";
+		document.getElementById($identificador+"f").className = "frontFlip";
+}
