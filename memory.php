@@ -20,8 +20,8 @@
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
 				echo ('	<td><div class="container" onclick=" flip('.$cont.')">
-							<img src="imagenes/'.$cartas4X4[$cont].'.jpeg" style="width:120px;height:180px;" class="back" id="'.$cont.'f">
-							<img src="imagenes/dorso.jpeg" style="width:120px;height:180px;" class="front" id="'.$cont.'b ">
+							<img src="imagenes/'.$cartas4X4[$cont].'.png" style="width:120px;height:180px;" class="back" id="'.$cont.'f">
+							<img src="imagenes/dorso.png" style="width:120px;height:180px;" class="front" id="'.$cont.'b ">
 						</div></td>');
 				$cont++;
 
