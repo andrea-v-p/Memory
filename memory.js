@@ -7,4 +7,5 @@ function flip($identificador){
 	}else if(x.className=="back"){
 		document.getElementById($identificador+"b").className = "backFlip";
 		document.getElementById($identificador+"f").className = "frontFlip";
+	}
 }
