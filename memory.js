@@ -1,3 +1,5 @@
+var intentos = 0;
+
 function flip($identificador){
 	var x = document.getElementById($identificador+"b");
 
