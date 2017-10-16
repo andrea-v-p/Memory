@@ -17,7 +17,7 @@ function click1($identificador, $totalCartas){
 		idCards = queCartasId(tCarta);
 		intentos ++;
 
-		if (CompruebaIguales(idCards)==true) {
+		if (compruebaIguales(idCards)==true) {
 
 			document.getElementById(idCards[0]+"b").className = "backFlip2";
 			document.getElementById(idCards[0]+"f").className = "frontFlip2";
@@ -25,7 +25,7 @@ function click1($identificador, $totalCartas){
 			document.getElementById(idCards[1]+"b").className = "backFlip2";
 			document.getElementById(idCards[1]+"f").className = "frontFlip2";
 
-			if(CompruebaFinal(tCarta)){
+			if(compruebaFinal(tCarta)){
 				alert(intentos);
 			}
 		}else{
@@ -47,7 +47,7 @@ function cuantasCartas(cartas) {
 	return carta;
 }
 
-function CompruebaIguales(cards) {
+function compruebaIguales(cards) {
 	var id1 = document.getElementById(cards[0]+'f').src;
 	var id2 = document.getElementById(cards[1]+'f').src;
 	console.log(id1, id2);
@@ -58,7 +58,12 @@ function CompruebaIguales(cards) {
 	}
 }
 
-function CompruebaFinal(tCarta) {
+// REVISAR
+function compruebaMisma(){
+	//BODY
+}
+
+function compruebaFinal(tCarta) {
 	var total;
 	for(var i = 0; i < tCarta; i++){
 		if (document.getElementById(i+"b").className == "backFlip2"){
