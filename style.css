@@ -15,7 +15,8 @@
   position: relative;
 }
 
-.container > .front{position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
+.container > .front{
+  position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
   transform: perspective(600px) rotateY(0deg);
   background #fCO; width: 200px;height: 200px; border-radius: 7px;
   -webkit-backface-visibility: hidden;
@@ -23,7 +24,8 @@
   transition: webkit-transform .5s linear 0s;
   transition: transform .5s linear 0s;
 }
-.container > .back{position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
+.container > .back{
+  position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
   transform: perspective(600px) rotateY(180deg);
   background #fCO; width: 200px;height: 200px; border-radius: 7px;
   -webkit-backface-visibility: hidden;
@@ -50,3 +52,26 @@
   transition: transform .5s linear 0s;
 }
 /*FIN DE FLIP DE LAS CARTAS*/
+
+/* CARTAS CORRECTAS */
+.container > .frontFlip2{
+  position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
+  transform: perspective(600px) rotateY(0deg);
+  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: webkit-transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+  border: red;
+}
+.container > .backFlip2{
+  position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
+  transform: perspective(600px) rotateY(180deg);
+  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: webkit-transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+  border: red;
+}
+/* FIN CARTAS CORRECTAS */
