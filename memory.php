@@ -16,7 +16,7 @@
 			// 5, 6, 7, 8,  , 5, 6, 7, 8
 	$cartas4X4 = array( 1, 2, 3, 4, 1, 2, 3, 4);
 	shuffle($cartas4X4);
-	echo ("<table>");
+	echo ("<div id='tabla'> <table>");
 		for ($i=0; $i < $col ; $i++) { 
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
@@ -30,8 +30,14 @@
 	}
 	echo ("</table>");
 ?>
+	<button id="restart" onclick="location.reload();">Reiniciar</button>
+	<!-- <button id="scoreboard">Marcador</button>
 
-	<button id="restart">Reiniciar</button>
+	<form action="marcador.php" method="post" id="formu" class="formulario">
+	 	<p>Nombre: <input type="text" name="nombre" maxlength="20" /></p>
+	 	<p>Intentos: <input type="text" name="intentos" maxlength="4" disabled /></p>
+	 	<p><input type="submit"/></p>
+	</form> -->
 
 </body>
 </html>

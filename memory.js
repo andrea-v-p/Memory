@@ -1,32 +1,33 @@
+var intentos = 0;
+
 function click1($identificador, $totalCartas){
-	var intentos = 0;
 	var tCarta = $totalCartas;
 	var cards;
 	var identificador = $identificador;
-	
-	//REVISAR
-	if(compruebaMisma(identificador)){
-		if (cuantasCartas(tCarta) == 0){
-			flip(identificador);
 
-		}else if (cuantasCartas(tCarta) == 1){
+	if (cuantasCartas(tCarta) == 0){
+		if(compruebaMisma(identificador)){
+			flip(identificador);
+		}
+	}else if (cuantasCartas(tCarta) == 1){
+		if(compruebaMisma(identificador)){
+			intentos ++;
 			flip(identificador);
 
 			cards = queCartas(tCarta);
 			idCards = queCartasId(tCarta);
-			intentos ++;
+			
 
 			if (compruebaIguales(idCards)==true) {
-				
-				//REVISAR
-				dobleFlip(idCards);
+				bloquear(idCards);
 
 				if(compruebaFinal(tCarta)){
-					alert(intentos);
+					document.getElementById("formu").innerHTML = intentos;
+					document.getElementById("formu").className = "formularioVisible";
+					
 				}
 			}else{
-				flip(idCards[0]);
-				flip(idCards[1]);
+				setTimeout(dobleFlip,1500, idCards);
 			}
 		}
 	}
@@ -47,7 +48,7 @@ function cuantasCartas(cartas) {
 function compruebaIguales(cards) {
 	var id1 = document.getElementById(cards[0]+'f').src;
 	var id2 = document.getElementById(cards[1]+'f').src;
-	console.log(id1, id2);
+	
 	if(id1 == id2){
 		return true;
 	}else{
@@ -55,22 +56,27 @@ function compruebaIguales(cards) {
 	}
 }
 
-// REVISAR
 function compruebaMisma(i){
-	if(document.getElementById(i+"f").className == ("front") )
+	if(document.getElementById(i+"f").className == ("frontFlip") ){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 function compruebaFinal(tCarta) {
-	var total;
+	var total=0;
+	var id;
 	for(var i = 0; i < tCarta; i++){
-		if (document.getElementById(i+"b").className == "backFlip2"){
+		id = document.getElementById(i+"f");
+		if (id.className == "frontFlip2"){
 			total++;
 		}
-		if (total == tCarta){
-			return true;
-		}else{
-			return false;
-		}
+	}
+	if (total == tCarta){
+		return true;
+	}else{
+		return false;
 	}
 }
 
@@ -111,11 +117,18 @@ function flip(identificador){
 	}
 }
 
-//REVISAR	
-function dobleFlip(idCards){
+function bloquear(idCards){
 	document.getElementById(idCards[0]+"b").className = "backFlip2";
 	document.getElementById(idCards[0]+"f").className = "frontFlip2";
 
 	document.getElementById(idCards[1]+"b").className = "backFlip2";
 	document.getElementById(idCards[1]+"f").className = "frontFlip2";
+}
+
+function dobleFlip(idCards){
+	document.getElementById(idCards[0]+"b").className = "backFlip";
+	document.getElementById(idCards[0]+"f").className = "frontFlip";
+
+	document.getElementById(idCards[1]+"b").className = "backFlip";
+	document.getElementById(idCards[1]+"f").className = "frontFlip";
 }
