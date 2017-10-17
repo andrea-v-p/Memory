@@ -1,36 +1,33 @@
-// COMPROBAR SI ES LA MISMA CARTA
-
-
 function click1($identificador, $totalCartas){
 	var intentos = 0;
 	var tCarta = $totalCartas;
 	var cards;
 	var identificador = $identificador;
+	
+	//REVISAR
+	if(compruebaMisma(identificador)){
+		if (cuantasCartas(tCarta) == 0){
+			flip(identificador);
 
-	if (cuantasCartas(tCarta) == 0){
-		flip(identificador);
+		}else if (cuantasCartas(tCarta) == 1){
+			flip(identificador);
 
-	}else if (cuantasCartas(tCarta) == 1){
-		flip(identificador);
+			cards = queCartas(tCarta);
+			idCards = queCartasId(tCarta);
+			intentos ++;
 
-		cards = queCartas(tCarta);
-		idCards = queCartasId(tCarta);
-		intentos ++;
+			if (compruebaIguales(idCards)==true) {
+				
+				//REVISAR
+				dobleFlip(idCards);
 
-		if (compruebaIguales(idCards)==true) {
-
-			document.getElementById(idCards[0]+"b").className = "backFlip2";
-			document.getElementById(idCards[0]+"f").className = "frontFlip2";
-
-			document.getElementById(idCards[1]+"b").className = "backFlip2";
-			document.getElementById(idCards[1]+"f").className = "frontFlip2";
-
-			if(compruebaFinal(tCarta)){
-				alert(intentos);
+				if(compruebaFinal(tCarta)){
+					alert(intentos);
+				}
+			}else{
+				flip(idCards[0]);
+				flip(idCards[1]);
 			}
-		}else{
-			flip(idCards[0]);
-			flip(idCards[1]);
 		}
 	}
 }
@@ -59,8 +56,8 @@ function compruebaIguales(cards) {
 }
 
 // REVISAR
-function compruebaMisma(){
-	//BODY
+function compruebaMisma(i){
+	if(document.getElementById(i+"f").className == ("front") )
 }
 
 function compruebaFinal(tCarta) {
@@ -112,4 +109,13 @@ function flip(identificador){
 		document.getElementById(identificador+"b").className = "backFlip";
 		document.getElementById(identificador+"f").className = "frontFlip";
 	}
+}
+
+//REVISAR	
+function dobleFlip(idCards){
+	document.getElementById(idCards[0]+"b").className = "backFlip2";
+	document.getElementById(idCards[0]+"f").className = "frontFlip2";
+
+	document.getElementById(idCards[1]+"b").className = "backFlip2";
+	document.getElementById(idCards[1]+"f").className = "frontFlip2";
 }
