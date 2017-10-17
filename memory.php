@@ -21,8 +21,8 @@
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
 				echo ('	<td><div class="container" onclick="click1('.$cont.', '.$total.')">
-							<img src="Imagenes/'.$cartas4X4[$cont].'.png" style="width:120px;height:180px;" class="frontFlip" id="'.$cont.'f">
-							<img src="Imagenes/dorso.png" style="width:120px;height:180px;" class="backFlip" id="'.$cont.'b">
+							<img src="Imagenes/'.$cartas4X4[$cont].'.png" style="width:160px;height:230px;" class="frontFlip" id="'.$cont.'f">
+							<img src="Imagenes/dorso.png" style="width:160px;height:230px;" class="backFlip" id="'.$cont.'b">
 						</div></td>');
 				$cont++;
 			}
@@ -31,13 +31,15 @@
 	echo ("</table>");
 ?>
 	<button id="restart" onclick="location.reload();">Reiniciar</button>
-	<!-- <button id="scoreboard">Marcador</button>
+	<button id="scoreboard" disabled="true">Marcador</button>
 
-	<form action="marcador.php" method="post" id="formu" class="formulario">
-	 	<p>Nombre: <input type="text" name="nombre" maxlength="20" /></p>
-	 	<p>Intentos: <input type="text" name="intentos" maxlength="4" disabled /></p>
-	 	<p><input type="submit"/></p>
-	</form> -->
+	<!-- <div id="formu" class="formulario">
+		<form action="marcador.php" method="post" >
+		 	<p>Nombre: <input type="text" name="nombre" maxlength="20" /></p>
+		 	<p>Intentos: <input type="text" name="intentos" maxlength="4" id="inten" disabled /></p>
+		 	<p><input type="submit" disabled="true" /></p>
+		</form>
+	</div> -->
 
 </body>
 </html>

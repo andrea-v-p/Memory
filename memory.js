@@ -1,5 +1,6 @@
 var intentos = 0;
 
+// Funcion distribuidora
 function click1($identificador, $totalCartas){
 	var tCarta = $totalCartas;
 	var cards;
@@ -22,8 +23,11 @@ function click1($identificador, $totalCartas){
 				bloquear(idCards);
 
 				if(compruebaFinal(tCarta)){
-					document.getElementById("formu").innerHTML = intentos;
-					document.getElementById("formu").className = "formularioVisible";
+					alert(intentos);
+
+				// Intento de marcador
+					// document.getElementById("inten").innerHTML = intentos;
+					// document.getElementById("submit").disabled = "false";
 					
 				}
 			}else{
@@ -33,6 +37,8 @@ function click1($identificador, $totalCartas){
 	}
 }
 
+
+// Cuenta cuantas cartas estan de cara
 function cuantasCartas(cartas) {
 	var carta=0;
 	var id;
@@ -45,6 +51,8 @@ function cuantasCartas(cartas) {
 	return carta;
 }
 
+
+// Comprueba que las 2 cartas son iguales
 function compruebaIguales(cards) {
 	var id1 = document.getElementById(cards[0]+'f').src;
 	var id2 = document.getElementById(cards[1]+'f').src;
@@ -56,6 +64,8 @@ function compruebaIguales(cards) {
 	}
 }
 
+
+// Verifica que no se pueda volver a dar la vuelta a la carta
 function compruebaMisma(i){
 	if(document.getElementById(i+"f").className == ("frontFlip") ){
 		return true;
@@ -64,6 +74,8 @@ function compruebaMisma(i){
 	}
 }
 
+
+// Comprueba si se ha finalizado el juego
 function compruebaFinal(tCarta) {
 	var total=0;
 	var id;
@@ -80,6 +92,7 @@ function compruebaFinal(tCarta) {
 	}
 }
 
+// Devuelve una array con el SRC de las 2 cartas que estan boca arriba
 function queCartas(tCarta) {
 	var cards = new Array();
 	var cartas = tCarta;
@@ -92,6 +105,8 @@ function queCartas(tCarta) {
 	}
 	return cards;
 }
+
+// Devuelve una array con el ID de las 2 cartas que estan boca arriba
 function queCartasId(tCarta) {
 	var cartasId = new Array();
 	var carta = tCarta
@@ -105,6 +120,7 @@ function queCartasId(tCarta) {
 	return cartasId;
 }
 
+//Voltea la carta que llega
 function flip(identificador){
 	var x = document.getElementById(identificador+"f");
 
@@ -117,6 +133,7 @@ function flip(identificador){
 	}
 }
 
+// Cambia la clase de las cartas evitando que se puedan volver a girar
 function bloquear(idCards){
 	document.getElementById(idCards[0]+"b").className = "backFlip2";
 	document.getElementById(idCards[0]+"f").className = "frontFlip2";
@@ -125,6 +142,7 @@ function bloquear(idCards){
 	document.getElementById(idCards[1]+"f").className = "frontFlip2";
 }
 
+// Devuelve las cartas boca abajo
 function dobleFlip(idCards){
 	document.getElementById(idCards[0]+"b").className = "backFlip";
 	document.getElementById(idCards[0]+"f").className = "frontFlip";
