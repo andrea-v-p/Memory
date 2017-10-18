@@ -20,7 +20,9 @@ body {
 }
 
 .container {
-  position: relative;
+  position: static;
+  /* A REVISAR
+  position: relative;*/
 }
 
 .container > .front{
@@ -87,7 +89,7 @@ body {
 #tabla{
   top: 160px;
   align-self: center;
-  position: absolute;
+  position: static;
   left: 40%;
 }
 
@@ -95,7 +97,7 @@ body {
   height: 50px;
   width: 130px;
   margin: 15px;
-  position: absolute;
+  position: static;
   left: 16%;
   
 }
@@ -104,7 +106,7 @@ body {
   height: 50px;
   width: 130px;
   margin: 15px;
-  position: absolute;
+  position: static;
   right: 16%;
 }
 
@@ -115,5 +117,15 @@ body {
 .formularioVisible{
   visibility: visible;
 }
+
+/* FORMULARIO POSITION FIXED ENCIMA DE TODO 
+
+div.form {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}*/
 
 
