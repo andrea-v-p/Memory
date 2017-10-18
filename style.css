@@ -8,8 +8,8 @@ body {
 
 /*FLIP DE LAS CARTAS*/
 .front, .back, .container {
-  width: 180px;
-  height: 250px;
+  width: 150px;
+  height: 200px;
 }
 
 .front, .back {
@@ -20,9 +20,7 @@ body {
 }
 
 .container {
-  position: static;
-  /* A REVISAR
-  position: relative;*/
+  position: relative;
 }
 
 .container > .front{
@@ -87,45 +85,63 @@ body {
 /* FIN CARTAS CORRECTAS */
 
 #tabla{
-  top: 160px;
+  top: 5%;
   align-self: center;
-  position: static;
-  left: 40%;
+  position: fixed;
+  left: 30%;
+  right: 40%;
 }
 
 #restart{
   height: 50px;
   width: 130px;
   margin: 15px;
-  position: static;
-  left: 16%;
-  
+  position: fixed;
+  left: 30%;
 }
 
 #scoreboard{
   height: 50px;
   width: 130px;
   margin: 15px;
-  position: static;
-  right: 16%;
+  position: fixed;
+  left: 60%;
 }
 
-.formulario{
+
+/* FORMULARIO POSITION FIXED ENCIMA DE TODO */
+
+div.formu {
+  text-align: center;
   visibility: hidden;
+  position: fixed;
+  top: 80px;
+  left: 35%;
+  right: 35%;
+  width: 300px;
+  border: 3px solid #580808;
 }
 
-.formularioVisible{
+div.formuV {
+  text-align: center;
   visibility: visible;
+  position: fixed;
+  background-color: #8E8D8D;
+  top: 40px;
+  left: 30%;
+  right: 40%;
+  width: 300px;
+  border: 3px solid #580808;
 }
 
-/* FORMULARIO POSITION FIXED ENCIMA DE TODO 
-
-div.form {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 300px;
-    border: 3px solid #73AD21;
-}*/
-
-
+div.intent {
+  color: white;
+  text-align: center;
+  position: fixed;
+  background-color: #304f4f;
+  top: 30px;
+  left: 30px;
+  width: 120px;
+  height: 20px;
+  border: 3px solid #20afaf;
+}

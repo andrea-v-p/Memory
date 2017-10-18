@@ -14,6 +14,8 @@ function click1($identificador, $totalCartas){
 		if(compruebaMisma(identificador)){
 			intentos ++;
 			flip(identificador);
+			document.getElementById("intent").innerHTML = "Intentos: "+ intentos;
+			document.getElementById("intentos").value = intentos;
 
 			cards = queCartas(tCarta);
 			idCards = queCartasId(tCarta);
@@ -26,12 +28,12 @@ function click1($identificador, $totalCartas){
 					alert(intentos);
 
 				// Intento de marcador
-					// document.getElementById("inten").innerHTML = intentos;
-					// document.getElementById("submit").disabled = "false";
+					
+					document.getElementById("marcador").className = "formuV";
 					
 				}
 			}else{
-				setTimeout(dobleFlip,1500, idCards);
+				setTimeout(dobleFlip,1000, idCards);
 			}
 		}
 	}

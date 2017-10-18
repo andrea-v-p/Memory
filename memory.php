@@ -6,6 +6,7 @@
 	<script src="memory.js"></script> 
 </head>
 <body>
+<div class="intent" id="intent">Intentos: 0</div>
 <?php 
 	$col = 2;
 	$fil = 4;
@@ -21,8 +22,8 @@
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
 				echo ('	<td><div class="container" onclick="click1('.$cont.', '.$total.')">
-							<img src="Imagenes/'.$cartas4X4[$cont].'.png" style="width:160px;height:230px;" class="frontFlip" id="'.$cont.'f">
-							<img src="Imagenes/dorso.png" style="width:160px;height:230px;" class="backFlip" id="'.$cont.'b">
+							<img src="Imagenes/'.$cartas4X4[$cont].'.png" style="width:130px;height:180px;" class="frontFlip" id="'.$cont.'f">
+							<img src="Imagenes/dorso.png" style="width:130px;height:180px;" class="backFlip" id="'.$cont.'b">
 						</div></td>');
 				$cont++;
 			}
@@ -33,13 +34,17 @@
 	<button id="restart" onclick="location.reload();">Reiniciar</button>
 	<button id="scoreboard" disabled="true">Marcador</button>
 
-	<!-- <div id="formu" class="formulario">
+
+	<div id="marcador" class="formu">
+
 		<form action="marcador.php" method="post" >
-		 	<p>Nombre: <input type="text" name="nombre" maxlength="20" /></p>
-		 	<p>Intentos: <input type="text" name="intentos" maxlength="4" id="inten" disabled /></p>
-		 	<p><input type="submit" disabled="true" /></p>
+		 	<p>Nombre: <input type="text" name="name" maxlength="20" /></p>
+		 	<p>Intentos: <input type="text" name="intentos" maxlength="4" disabled="true" id="intentos" /></p>
+		 	<p><input value="Envia" type="submit" name='go'/></p>
 		</form>
-	</div> -->
+
+	</div> 
+
 
 </body>
 </html>
