@@ -12,28 +12,35 @@
 				fwrite($myfile, $txt);
 
 			fclose($myfile);
-			echo "HOLA";
 		}
 
-		// function ReadDoc($nombre, $intentos){
-		// 	$lines = array();
-		// 	$text = array();
-		// 	$myfile = fopen("marcador.txt", "r");
-		// 	   while ($line = fgets($myfile)) !== false) {
-		// 	        text= fgets($myfile);
-		// 			array_push($lines,);
-		// 	   	}
+		function ReadDoc($nombre, $intentos){
+			$lines = array();
+			$myfile = fopen("marcador.txt", "r");
 
-		// 	fclose($myfile);
-		// }
+			 while(!feof($myfile)) {
+			 	// $linea Recoge una linea
+				$linea = fgets($myfile);
+
+				// $text separa el nombre del resultado
+				$text = explode(" ",$linea);
+				echo $text[0];
+				//echo $text[1].'<br>';
+			
+
+			} 
+
+		 	fclose($myfile);
+		 	return $lines;
+		}
 
 
 		$nombre = $_POST["name"];
 		$intentos = $_POST["intento"];
+		$result = array();
 		WriteDoc($nombre, $intentos);
 
-
-
+		ReadDoc($nombre, $intentos);
 		?>
 
 	</body>

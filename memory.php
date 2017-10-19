@@ -39,7 +39,7 @@
 
 		<form action="marcador.php" method="post" >
 		 	<p>Nombre: <input type="text" name="name" maxlength="20" /></p>
-		 	<p>Intentos: <input type="text" name="intentos" maxlength="4" disabled="true" id="intentos" /></p>
+		 	<p>Intentos: <input type="text" name="intento" maxlength="4" readonly="true" id="intentos" /></p>
 		 	<p><input value="Envia" type="submit" name='go'/></p>
 		</form>
 
