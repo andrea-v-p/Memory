@@ -34,11 +34,10 @@
 	<button id="restart" onclick="location.reload();">Reiniciar</button>
 	<button id="scoreboard" disabled="true">Marcador</button>
 
-
 	<div id="marcador" class="formu">
 
 		<form action="marcador.php" method="post" >
-		 	<p>Nombre: <input type="text" name="name" maxlength="20" /></p>
+		 	<p>Nombre: <input type="text" name="name" maxlength="10" required="true" /></p>
 		 	<p>Intentos: <input type="text" name="intento" maxlength="4" readonly="true" id="intentos" /></p>
 		 	<p><input value="Envia" type="submit" name='go'/></p>
 		</form>
