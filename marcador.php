@@ -17,28 +17,26 @@
 		}
 
 		function ReadDoc($nombre, $intentos){
-			$lines = array();
+			$linias = count(file("marcador.txt"));
 			$myfile = fopen("marcador.txt", "r");
 			$array = array();
-			$text2 = array();
 
 			while(!feof($myfile)) {
-			 	// $linea Recoge una linea
-				$linea = fgets($myfile);
+					
+					$text2 = array();
+				 	// $linea Recoge una linea
+					$linea = fgets($myfile);
 
-				// $text separa el nombre del resultado
-				$text = explode(" ",$linea);
-				
-				echo($text[1]." ".$text[0]);
-				array_push($text2, $text[1]);
-				array_push($text2, $text[0]);
-				echo($text2[count($text2-1)][1]." ".$text2[count($text2-1)][0]);
-
-				if( count($text2)>1 ) {
-					//echo ("<td>".$text[0]."</td><td>".$text[1]."</td>");
-					array_push($array, $text2);
-				}
-
+					// $text separa el nombre del resultado
+					$text = explode(" ",$linea);
+					
+					array_push($text2, (int)$text[1]);
+					array_push($text2, $text[0]);
+					
+					if( count($text2)>1 ) {
+						//echo ("<td>".$text[0]."</td><td>".$text[1]."</td>");
+						array_push($array, $text2);
+					}
 			} 
 		 	fclose($myfile);
 		 	return $array;
@@ -51,10 +49,9 @@
 		WriteDoc($nombre, $intentos);
 		$result =ReadDoc($nombre, $intentos);
 
-		asort($result);
-
+		$a= sort($result);
 		echo ("<table id='scoreTable' calss='scoreTable'>
-			<tr> <th>NAME</th> <th>SCORE</th> </tr>");
+			<tr> <th>SCORE</th> <th>NAME</th> </tr>");
 			for($x=0; $x <count($result); $x++){
 				echo ("<tr>");
 

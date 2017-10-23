@@ -12,9 +12,11 @@
 	$fil = 4;
 	$total = $col*$fil;
 	$cont =0;
+
 	// cartas4X4 array temporal falta añadir el resto de imagenes
 		// 16 CARTAS -- 8 PAREJAS
 			// 5, 6, 7, 8,  , 5, 6, 7, 8
+
 	$cartas4X4 = array( 1, 2, 3, 4, 1, 2, 3, 4);
 	shuffle($cartas4X4);
 	echo ("<div id='tabla'> <table>");
@@ -30,10 +32,10 @@
 			echo ("</tr>");
 	}
 	echo ("</table>");
-?>
-	<button id="restart" onclick="location.reload();">Reiniciar</button>
-	<button id="scoreboard" disabled="true">Marcador</button>
 
+	echo ("<button id='restart' onclick='location.reload();'>Reiniciar</button>
+	<button id='hlp' onclick='ayuda($total)'>Ayuda: 3</button>");
+?>
 	<div id="marcador" class="formu">
 
 		<form action="marcador.php" method="post" >
@@ -43,7 +45,6 @@
 		</form>
 
 	</div> 
-
 
 </body>
 </html>

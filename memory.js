@@ -1,4 +1,9 @@
 var intentos = 0;
+var ayudas=3;
+var ohno = new Audio('Sonidos/baymax.mp3');
+var coin = new Audio('Sonidos/coin.mp3');
+var item = new Audio('Sonidos/kingdom.mp3');
+
 
 // Funcion distribuidora
 function click1($identificador, $totalCartas){
@@ -8,6 +13,7 @@ function click1($identificador, $totalCartas){
 
 	if (cuantasCartas(tCarta) == 0){
 		if(compruebaMisma(identificador)){
+			item.play();
 			flip(identificador);
 		}
 	}else if (cuantasCartas(tCarta) == 1){
@@ -22,6 +28,7 @@ function click1($identificador, $totalCartas){
 			
 
 			if (compruebaIguales(idCards)==true) {
+				coin.play();
 				bloquear(idCards);
 
 				if(compruebaFinal(tCarta)){
@@ -33,6 +40,7 @@ function click1($identificador, $totalCartas){
 					
 				}
 			}else{
+				ohno.play();
 				setTimeout(dobleFlip,1000, idCards);
 			}
 		}
@@ -152,3 +160,35 @@ function dobleFlip(idCards){
 	document.getElementById(idCards[1]+"b").className = "backFlip";
 	document.getElementById(idCards[1]+"f").className = "frontFlip";
 }
+
+
+// Destapa todas las cartas que tienen la clase frontFlip si ya estan destapadas tendran la clase frontFlip2
+function ayuda(totalCartas){
+	if (ayudas>0){
+		ayudas--;
+		intentos = intentos+5;
+
+		document.getElementById("hlp").innerHTML = "ayuda: "+ ayudas;
+		document.getElementById("intent").innerHTML = "Intentos: "+ intentos;
+
+		for(var x=0;x<totalCartas;x++){
+			var y = document.getElementById(x+"f");
+			if (y.className=="frontFlip"){
+				document.getElementById(x+"b").className = "back";
+				document.getElementById(x+"f").className = "front";
+			}
+		}
+		setTimeout(taparAyuda,3000, totalCartas);
+	}
+}
+// ayuda ->Al cabo de 3 segundos se volveran a tapar
+function taparAyuda(totalCartas){
+	for(var x=0;x<totalCartas;x++){
+		var y = document.getElementById(x+"f");
+		if (y.className=="front"){
+			document.getElementById(x+"b").className = "backFlip";
+			document.getElementById(x+"f").className = "frontFlip";
+		}
+	}
+}
+

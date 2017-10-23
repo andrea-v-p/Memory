@@ -97,9 +97,17 @@ body {
   width: 130px;
   margin: 15px;
   position: fixed;
-  left: 50%;
+  left: 30%;
 }
 
+
+#hlp{
+  height: 50px;
+  width: 130px;
+  margin: 15px;
+  position: fixed;
+  left: 60%;
+}
 
 
 
