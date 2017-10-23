@@ -28,17 +28,17 @@
 
 				// $text separa el nombre del resultado
 				$text = explode(" ",$linea);
-
+				
+				echo($text[1]." ".$text[0]);
 				array_push($text2, $text[1]);
 				array_push($text2, $text[0]);
+				echo($text2[count($text2-1)][1]." ".$text2[count($text2-1)][0]);
 
 				if( count($text2)>1 ) {
 					//echo ("<td>".$text[0]."</td><td>".$text[1]."</td>");
 					array_push($array, $text2);
 				}
-				
-				
-				
+
 			} 
 		 	fclose($myfile);
 		 	return $array;
