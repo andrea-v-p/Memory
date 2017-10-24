@@ -10,7 +10,7 @@
 		function WriteDoc($nombre, $intentos){
 			$myfile = fopen("marcador.txt", "a+");
 
-				$txt = $nombre." ".$intentos."\n";
+				$txt = "\n".$nombre." ".$intentos;
 				fwrite($myfile, $txt);
 
 			fclose($myfile);

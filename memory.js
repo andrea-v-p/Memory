@@ -41,9 +41,8 @@ function click1($identificador, $totalCartas){
 
 				if(compruebaFinal(tCarta)){
 					win.play();
-
-				// Intento de marcador
-				//document.getElementById("marcador").className = "formuV";	
+					parar();
+					document.getElementById("marcador").className = "formuV";
 				}
 			}else{
 				ohno.play();
@@ -201,21 +200,21 @@ function taparAyuda(totalCartas){
 //AÑADIR VARIABLES EN EL PHP
 //CRONO
 var time; 
-var on = false; 
 var seconds = 0; 
 var minutes = 0;
  
 function iniTiempo(){
-        seconds++;
-        time = setTimeout("startTime()",1000);
-        if(seconds > 59) {
+    seconds++;
+    time = setTimeout("iniTiempo()",1000);
+    if(seconds > 59) {
 		seconds = 0; 
 		minutes++;
+		console.log(seconds);
 	}
 	// Mostar segundos
-        document.getElementById("minutes").value = minutes;
-        // Mostar segundos
-        document.getElementById("seconds").value = seconds;
+    document.getElementById("minutos").innerHTML = minutes;
+    // Mostar segundos
+    document.getElementById("segundos").innerHTML = seconds;
 }
 function parar () {
 	clearInterval(time);

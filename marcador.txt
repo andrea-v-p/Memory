@@ -1,5 +1,4 @@
-algo 9
-dan 6
-tom 8
-tom 8
-tom 8
+andrea 4
+ruben 6
+JJ 10
+AVE 18

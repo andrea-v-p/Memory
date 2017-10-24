@@ -7,53 +7,70 @@ body {
 }
 
 /*FLIP DE LAS CARTAS*/
-.front, .back, .container {
-  width: 150px;
-  height: 200px;
+.front, .back{
+  width: 140px;
+  height: 190px;
 }
 
+.container {
+  position: relative;
+  width: 100px;
+  height: 140px;
+}
+
+.container2 {
+  position: relative;
+  width: 60px;
+  height: 80px;
+}
+
+.container3 {
+  position: relative;
+  width: 50px;
+  height: 60px;
+}
+
+
 .front, .back {
+  position: relative;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.container {
-  position: relative;
-}
 
-.container > .front{
+.container > .front, .container2 > .front, .container3 > .front{
   position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
   transform: perspective(600px) rotateY(0deg);
-  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  /*background #fCO; width: 200px;height: 200px; border-radius: 7px;*/
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: webkit-transform .5s linear 0s;
   transition: transform .5s linear 0s;
 }
-.container > .back{
+.container > .back, .container2 > .back, .container3 > .back{
   position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
   transform: perspective(600px) rotateY(180deg);
-  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  /*background #fCO; width: 200px;height: 200px; border-radius: 7px;*/
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: webkit-transform .5s linear 0s;
   transition: transform .5s linear 0s;
 }
-.container > .frontFlip{
+.container > .frontFlip, .container2 > .frontFlip, .container3 > .frontFlip{
   position: absolute; -webkit-transform: perspective(600px) rotateY(-180deg);
   transform: perspective(600px) rotateY(-180deg);
-  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  /*background #fCO; width: 200px;height: 200px; border-radius: 7px;*/
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: webkit-transform .5s linear 0s;
   transition: transform .5s linear 0s;
 }
-.container > .backFlip{
+.container > .backFlip, .container2 > .backFlip, .container3 > .backFlip{
   position: absolute; -webkit-transform: perspective(600px) rotateY(-180deg);
   transform: perspective(600px) rotateY(0deg);
-  background #fCO; width: 200px;height: 200px; border-radius: 7px;
+  /*background #fCO; width: 200px;height: 200px; border-radius: 7px;*/
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: webkit-transform .5s linear 0s;
@@ -62,7 +79,7 @@ body {
 /*FIN DE FLIP DE LAS CARTAS*/
 
 /* CARTAS CORRECTAS */
-.container > .frontFlip2{
+.container > .frontFlip2, .container2 > .frontFlip2, .container3 > .frontFlip2{
   position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
   transform: perspective(600px) rotateY(0deg);
   background #fCO; width: 200px;height: 200px; border-radius: 7px;
@@ -72,7 +89,7 @@ body {
   transition: transform .5s linear 0s;
   border: red;
 }
-.container > .backFlip2{
+.container > .backFlip2, .container2 > .backFlip2, .container3 > .backFlip2{
   position: absolute; -webkit-transform: perspective(600px) rotateY(180deg);
   transform: perspective(600px) rotateY(180deg);
   background #fCO; width: 200px;height: 200px; border-radius: 7px;
@@ -123,20 +140,19 @@ div.formu {
   width: 300px;
   border: 3px solid #580808;
 }
-
-
-/*NO SE QUE ES ESTO*/
-div.formuV {
-  text-align: center;
-  visibility: visible;
-  position: fixed;
-  background-color: #8E8D8D;
-  top: 40px;
-  left: 30%;
-  right: 40%;
-  width: 300px;
-  border: 3px solid #580808;
+/*FORMULARIO VISIBLE*/
+ div.formuV {
+   text-align: center;
+   visibility: visible;
+   position: fixed;
+   background-color: #8E8D8D;
+   top: 40px;
+   left: 30%;
+   right: 40%;
+   width: 300px;
+   border: 3px solid #580808;
 }
+
 
 div.intent {
   color: white;
@@ -157,9 +173,15 @@ div.crono {
   background-color: #304f4f;
   top: 30px;
   right: 30px;
-  width: 120px;
-  height: 20px;
+  width: 180px;
+  height: 40px;
   border: 3px solid #20afaf;
+}
+
+div.crono p{
+  font-size: 32px;
+  display: inline;
+ 
 }
 
 /*SCORE TABLE*/
@@ -172,7 +194,6 @@ width: 600px;
 font-size: 12px;
 font-weight:bold;
 background-color: #e2ebef;
-background-image: url(fondo_tr01.png);
 background-repeat: repeat-x;
 color: #34484E;
 font-family: “Trebuchet MS”, Arial;
@@ -182,7 +203,6 @@ font-family: “Trebuchet MS”, Arial;
   padding: 5px;
   font-size: 16px;
   background-color: #83aec0;
-  background-image: url(fondo_th.png);
   background-repeat: repeat-x;
   color: #FFFFFF;
   border-right-width: 1px;
@@ -205,3 +225,27 @@ border-right-color: #A4C4D0;
 border-bottom-color: #A4C4D0;
 text-align:center;
 }
+
+
+/*INICIO.HTML*/
+#selecion{
+  font-size: 20px;
+  text-align: center;
+  height: 60px;
+  width: 180px;
+  margin: 15px;
+  top: 10%;
+  position: absolute;
+  left: 43%;
+}
+
+#start{
+  font-size: 16px;
+  height: 50px;
+  width: 130px;
+  margin: 15px;
+  top: 25%;
+  position: absolute;
+  left: 45%;
+}
+
