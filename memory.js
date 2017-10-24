@@ -1,13 +1,19 @@
+//contador de intentos que se ha hecho en la partida
 var intentos = 0;
+//Contador de las ayudas restantes.
 var ayudas=3;
+
+//Inicializacion de los audios.
 var ohno = new Audio('Sonidos/baymax.mp3');
 var coin = new Audio('Sonidos/coin.mp3');
 var item = new Audio('Sonidos/kingdom.mp3');
+var win = new Audio('Sonidos/win.mp3');
 
 
 // Funcion distribuidora
 function click1($identificador, $totalCartas){
 	var tCarta = $totalCartas;
+	//variable que almacena el resultado de queCartas().
 	var cards;
 	var identificador = $identificador;
 
@@ -20,6 +26,8 @@ function click1($identificador, $totalCartas){
 		if(compruebaMisma(identificador)){
 			intentos ++;
 			flip(identificador);
+			
+			// Actualiza el numero de intentos
 			document.getElementById("intent").innerHTML = "Intentos: "+ intentos;
 			document.getElementById("intentos").value = intentos;
 
@@ -32,12 +40,10 @@ function click1($identificador, $totalCartas){
 				bloquear(idCards);
 
 				if(compruebaFinal(tCarta)){
-					alert(intentos);
+					win.play();
 
 				// Intento de marcador
-					
-					document.getElementById("marcador").className = "formuV";
-					
+				//document.getElementById("marcador").className = "formuV";	
 				}
 			}else{
 				ohno.play();
@@ -143,7 +149,7 @@ function flip(identificador){
 	}
 }
 
-// Cambia la clase de las cartas evitando que se puedan volver a girar
+// Cambia la clase de las parejas que se han acertado evitando que se puedan volver a girar
 function bloquear(idCards){
 	document.getElementById(idCards[0]+"b").className = "backFlip2";
 	document.getElementById(idCards[0]+"f").className = "frontFlip2";
@@ -152,7 +158,7 @@ function bloquear(idCards){
 	document.getElementById(idCards[1]+"f").className = "frontFlip2";
 }
 
-// Devuelve las cartas boca abajo
+// Devuelve las parejas que has fallado boca abajo
 function dobleFlip(idCards){
 	document.getElementById(idCards[0]+"b").className = "backFlip";
 	document.getElementById(idCards[0]+"f").className = "frontFlip";
@@ -162,7 +168,7 @@ function dobleFlip(idCards){
 }
 
 
-// Destapa todas las cartas que tienen la clase frontFlip si ya estan destapadas tendran la clase frontFlip2
+// Destapa todas las cartas que tienen la clase frontFlip si ya que las que estan destapadas tendran la clase frontFlip2
 function ayuda(totalCartas){
 	if (ayudas>0){
 		ayudas--;
@@ -181,7 +187,7 @@ function ayuda(totalCartas){
 		setTimeout(taparAyuda,3000, totalCartas);
 	}
 }
-// ayuda ->Al cabo de 3 segundos se volveran a tapar
+// ayuda setTimeout ->Al cabo de 3 segundos se volveran a tapar
 function taparAyuda(totalCartas){
 	for(var x=0;x<totalCartas;x++){
 		var y = document.getElementById(x+"f");
@@ -190,5 +196,25 @@ function taparAyuda(totalCartas){
 			document.getElementById(x+"f").className = "frontFlip";
 		}
 	}
+}
+
+//AÑADIR VARIABLES EN EL PHP
+//CRONO
+var time; 
+var on = false; 
+var seconds = 0; 
+var minutes = 0;
+ 
+function startTime(){
+        seconds++;
+        time = setTimeout("startTime()",1000);
+        if(seconds > 59) {
+		seconds = 0; 
+		minutes++;
+	}
+	// Mostar segundos
+        document.getElementById("minutes").value = minutes;
+        // Mostar segundos
+        document.getElementById("seconds").value = seconds;
 }
 
