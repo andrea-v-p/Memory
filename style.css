@@ -124,6 +124,8 @@ div.formu {
   border: 3px solid #580808;
 }
 
+
+/*NO SE QUE ES ESTO*/
 div.formuV {
   text-align: center;
   visibility: visible;
@@ -147,6 +149,20 @@ div.intent {
   height: 20px;
   border: 3px solid #20afaf;
 }
+
+div.crono {
+  color: white;
+  text-align: center;
+  position: fixed;
+  background-color: #304f4f;
+  top: 30px;
+  right: 30px;
+  width: 120px;
+  height: 20px;
+  border: 3px solid #20afaf;
+}
+
+/*SCORE TABLE*/
 
 #scoreTable {
 font-family: Verdana, Arial, Helvetica, sans-serif;
