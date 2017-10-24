@@ -205,7 +205,7 @@ var on = false;
 var seconds = 0; 
 var minutes = 0;
  
-function startTime(){
+function iniTiempo(){
         seconds++;
         time = setTimeout("startTime()",1000);
         if(seconds > 59) {
@@ -216,5 +216,8 @@ function startTime(){
         document.getElementById("minutes").value = minutes;
         // Mostar segundos
         document.getElementById("seconds").value = seconds;
+}
+function parar () {
+	clearInterval(time);
 }
 
