@@ -7,6 +7,9 @@
 </head>
 <body>
 <div class="intent" id="intent">Intentos: 0</div>
+<div class="crono" id="crono">
+	<p id="minutos">00</p>	<p>:</p>	<p id="segundos">00</p>
+</div>
 <?php 
 	$col = 2;
 	$fil = 4;
