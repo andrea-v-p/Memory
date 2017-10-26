@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<?php
+		session_start();
 		function WriteDoc($nombre, $intentos){
 			$myfile = fopen("marcador.txt", "a+");
 
@@ -41,18 +42,26 @@
 		 	fclose($myfile);
 		 	return $array;
 		}
-
-
-		$nombre = $_POST["name"];
-		$intentos = $_POST["intento"];
 		
-		WriteDoc($nombre, $intentos);
-		$result =ReadDoc($nombre, $intentos);
-
-		$a= sort($result);
-		echo ("<table id='scoreTable' calss='scoreTable'>
+		
+		function guardaSesion ($nombre, $intentos){
+		//Marcador de Sesion
+			$_SESSION["marcadorSesion"]= array();
+			$_SESSION["sesion"]= array();
+			
+			array_push($_SESSION["sesion"], (int)$intentos);
+			array_push($_SESSION["sesion"],$nombre);
+			 
+				
+				
+			array_push($_SESSION["marcadorSesion"], $_SESSION["sesion"]); 
+		}
+	
+		imprime($sesion){
+			
+		echo ("<table id='scoreTableSession' calss='scoreTable'>
 			<tr> <th>SCORE</th> <th>NAME</th> </tr>");
-			for($x=0; $x <count($result); $x++){
+			for($x=0; $x <count($sesion); $x++){
 				echo ("<tr>");
 
 					echo ("<td>".$result[$x][0]."</td>");
@@ -61,7 +70,40 @@
 				echo ("</tr>");
 			}
 		echo ("</table>");
+			
+		}
+		
+		
+		$_SESSION["marcadorSesion"]= array();
+		$nombre = $_POST["name"];
+		$intentos = $_POST["intento"];
+		
+		WriteDoc($nombre, $intentos);
+		$_SESSION["marcadorSesion"] = guardaSesion($nombre, $intentos);
+		
+		$scoreSesion = leeSesion($_SESSION["marcadorSesion"]);
+		$result =ReadDoc($nombre, $intentos);
+
+		sort($result);
+		sort($scoreSesion);
+		
+		imprime($result);
+		echo ("<br><br><br>");
+		imprime($scoreSesion);
 		?>
 
 	</body>
 </html>
+/* 
+echo ("<table id='scoreTable' calss='scoreTable'>
+	<tr> <th>SCORE</th> <th>NAME</th> </tr>");
+	for($x=0; $x <count($result); $x++){
+		echo ("<tr>");
+
+		echo ("<td>".$result[$x][0]."</td>");
+		echo ("<td>".$result[$x][1]."</td>");
+
+	echo ("</tr>");
+	}
+echo ("</table>"); 
+*/
