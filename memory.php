@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	$_SESSION["cartas"];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,14 +55,16 @@
 	
 	$total = $col*$fil;
 	$cont =0;
-		
+	
+	$_SESSION["cartas"] = $listaCartas;	
 	shuffle($listaCartas);
+
 	echo ("<div id='tabla'> <table>");
 		for ($i=0; $i < $col ; $i++) { 
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
 				echo ('	<td><div class='.$clase.' onclick="click1('.$cont.', '.$total.')">
-							<img src="Imagenes/'.$listaCartas[$cont].'.png" style="width:'.$wid.'px;height:'.$hei.'px;" class="frontFlip" id="'.$cont.'f">
+							<img src="Imagenes/'.$_SESSION["cartas"][$cont].'.png" style="width:'.$wid.'px;height:'.$hei.'px;" class="frontFlip" id="'.$cont.'f">
 							<img src="Imagenes/dorso.png" style="width:'.$wid.'px;height:'.$hei.'px;" class="backFlip" id="'.$cont.'b">
 						</div></td>');
 				$cont++;
