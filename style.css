@@ -186,7 +186,7 @@ div.crono p{
 
 /*SCORE TABLE*/
 
-#scoreTable {
+.scoreTable {
 font-family: Verdana, Arial, Helvetica, sans-serif;
 font-size:12px;
 text-align: center;
@@ -199,7 +199,7 @@ color: #34484E;
 font-family: “Trebuchet MS”, Arial;
 }
 
-#scoreTable th{
+.scoreTable th{
   padding: 5px;
   font-size: 16px;
   background-color: #83aec0;
@@ -215,7 +215,7 @@ font-family: “Trebuchet MS”, Arial;
   text-transform: uppercase;
 }
 
-#scoreTable td {
+.scoreTable td {
 padding: 5px;
 border-right-width: 1px;
 border-bottom-width: 1px;

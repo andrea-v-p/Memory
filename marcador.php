@@ -1,7 +1,7 @@
 <?php 
 	session_start();
-	$_SESSION["marcadorSesion"];
-	$_SESSION["sesion"];
+	//$marcadorSesion = $_SESSION["marcadorSesion"];
+	//$sesion = $_SESSION["sesion"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,7 @@
 				fwrite($myfile, $txt);
 			fclose($myfile);
 		}
+		
 		function ReadDoc($nombre, $intentos){
 			$linias = count(file("marcador.txt"));
 			$myfile = fopen("marcador.txt", "r");
@@ -45,20 +46,26 @@
 		
 		function guardaSesion ($nombre, $intentos){
 		//Marcador de Sesion
-			$_SESSION["marcadorSesion"]= array();
-			$_SESSION["sesion"]= array();
+			if (!isset($_SESSION["marcadorSesion"])) {	
+				$_SESSION["marcadorSesion"]= array();
+			}
+				
 			
-			array_push($_SESSION["sesion"], (int)$intentos);
-			array_push($_SESSION["sesion"],$nombre);
+			
+			$sesion= array();
+			
+			array_push($sesion, (int)$intentos);
+			array_push($sesion,$nombre);
 			 
 				
 				
-			array_push($_SESSION["marcadorSesion"], $_SESSION["sesion"]); 
+			array_push($_SESSION["marcadorSesion"], $sesion); 
+			return $_SESSION["marcadorSesion"];
 		}
 	
 		function imprimeSession($sesion){
 		//sort($sesion);
-		echo ("<table calss='scoreTable'>
+		echo ("<table id='scoreTable' calss='scoreTable'>
 			<tr> <th>SCORE</th> <th>NAME</th> </tr>");
 			for($x=0; $x <count($sesion); $x++){
 				echo ("<tr>");
@@ -86,19 +93,20 @@
 		}
 		
 		
-		$_SESSION["marcadorSesion"]= array();
+		//$marcadorSesion= array();
 		$nombre = $_POST["name"];
 		$intentos = $_POST["intento"];
 		
 		WriteDoc($nombre, $intentos);
-		$_SESSION["marcadorSesion"] = guardaSesion($nombre, $intentos);
+		$marcadorSesion = guardaSesion($nombre, $intentos);
 		
-		//$_SESSION["marcadorSesion"];
+
 		$result = ReadDoc($nombre, $intentos);
-		
+		//La variable marcadorSesion lo guarda en una raid asi que no es necesario leer.
+
 		imprimeGlobal($result);
 		echo ("<br><br><br>");
-		imprimeSession($_SESSION["marcadorSesion"]);
+		imprimeSession($marcadorSesion);
 		?>
 
 	</body>

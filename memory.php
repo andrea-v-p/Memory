@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION["cartas"];
+	$_SESSION["nick"] = $_POST['nick'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,6 @@
 	$hei = 0;
 	$clase = 'container1';
 	
-
 	$option = $_POST['choice'];
 
 	if($option=="easy"){
@@ -56,15 +55,22 @@
 	$total = $col*$fil;
 	$cont =0;
 	
-	$_SESSION["cartas"] = $listaCartas;	
-	shuffle($listaCartas);
-
+	if (!isset($_SESSION["cartas"])) {	
+		shuffle($listaCartas);
+		$_SESSION["cartas"] = $listaCartas;
+	}else {
+		
+		$listaCartas = $_SESSION["cartas"];
+	}
+	
+	
+	echo ("<p style='color:white;'>".$_SESSION["nick"]."</p>");
 	echo ("<div id='tabla'> <table>");
 		for ($i=0; $i < $col ; $i++) { 
 			echo ("<tr>");
 			for ($x=0; $x < $fil ; $x++) {
 				echo ('	<td><div class='.$clase.' onclick="click1('.$cont.', '.$total.')">
-							<img src="Imagenes/'.$_SESSION["cartas"][$cont].'.png" style="width:'.$wid.'px;height:'.$hei.'px;" class="frontFlip" id="'.$cont.'f">
+							<img src="Imagenes/'.$listaCartas[$cont].'.png" style="width:'.$wid.'px;height:'.$hei.'px;" class="frontFlip" id="'.$cont.'f">
 							<img src="Imagenes/dorso.png" style="width:'.$wid.'px;height:'.$hei.'px;" class="backFlip" id="'.$cont.'b">
 						</div></td>');
 				$cont++;
@@ -73,17 +79,17 @@
 	}
 	echo ("</table>");
 
-	echo ("<a href='inicio.html'><button id='restart'>Reiniciar</button></a>
+	echo ("<a href='inicio.php'><button id='restart'>Reiniciar</button></a>
 	<button id='hlp' onclick='ayuda($total)'>Ayuda: 3</button>");
-?>
-	<div id="marcador" class="formu">
-		<form action="marcador.php" method="post" >
-		 	<p>Nombre: <input type="text" name="name" maxlength="10" required="true" /></p>
-		 	<p>Intentos: <input type="text" name="intento" maxlength="4" readonly="true" id="intentos" /></p>
-		 	<p><input value="Envia" type="submit" name='go'/></p>
-		</form>
-	</div> 
 
+	echo ("<div id='marcador' class='formu'>
+		<form action='marcador.php' method='post' >");
+		 	echo ("<p>Nombre: <input type ='text' name='name' maxlength='10' readonly='true' value='".$_SESSION['nick']."' /></p>");
+		 	echo ("<p>Intentos: <input type='text' name='intento' maxlength='4' readonly='true' id='intentos' /></p>
+		 	<p><input value='Envia' type='submit' name='go'/></p>
+		</form>
+	</div> ");
+?>
 
 </body>
 </html>
