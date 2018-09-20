@@ -11,6 +11,7 @@
 		<script src="memory.js"></script> 
 	</head>
 	<body>
+		<a href='inicio.php'><button>Inicio</button></a>
 		<?php
 		function WriteDoc($nombre, $intentos){
 			$myfile = fopen("marcador.txt", "a+");
@@ -103,10 +104,11 @@
 
 		$result = ReadDoc($nombre, $intentos);
 		//La variable marcadorSesion lo guarda en una raid asi que no es necesario leer.
-
+		echo ("<div id='marcador'>");
 		imprimeGlobal($result);
 		echo ("<br><br><br>");
 		imprimeSession($marcadorSesion);
+		echo ("</div>");
 		?>
 
 	</body>

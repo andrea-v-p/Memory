@@ -6,6 +6,18 @@ body {
   background-size: cover;
 }
 
+#marcador{
+  color: #ffffff;
+  background-color: #646d9a;
+  opacity: 0.8;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border: 3px solid #080808;
+}
+
 /*FLIP DE LAS CARTAS*/
 .front, .back{
   width: 140px;
